@@ -34,16 +34,16 @@ export const IntrospectedResourceGuesser = ({
   let hasCreate = false;
   let hasShow = false;
   schema.operations?.forEach((operation) => {
-    if (operation.type === 'list') {
+    if (operation.type === 'list' && props?.hasList !== false) {
       hasList = true;
     }
-    if (operation.type === 'edit') {
+    if (operation.type === 'edit' && props?.hasEdit !== false) {
       hasEdit = true;
     }
-    if (operation.type === 'create') {
+    if (operation.type === 'create' && props?.hasCreate !== false) {
       hasCreate = true;
     }
-    if (operation.type === 'show') {
+    if (operation.type === 'show' && props?.hasShow !== false) {
       hasShow = true;
     }
   });
